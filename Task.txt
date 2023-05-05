@@ -1,0 +1,60 @@
+//Day 3 Task
+
+1. Compare two JSON have same properties without order:
+
+let  obj1 = {name:"Gokul","age":"27"}; 
+let obj2 = {"age":27,name:"Gokul"}; 
+
+let flag = “true”
+for(let e in obj1){
+
+if (obj1[e]!==obj2[e])
+{
+      flag=false
+break;
+}
+}
+flag?console.log(“Equal”):console.log(“Not Equal””)
+
+
+2. Display all countries flag in console:
+
+<script>
+     //create a xhr object
+let xhr=new XMLHttpRequest();
+//open the http request
+xhr.open('GET','https://restcountries.com/v3.1/all');
+//handle the response
+
+
+xhr.onload = function(){
+    let data =JSON.parse(xhr.response);
+    for(let i=0; i<data.length;i++)
+      console.log(data[i].flags.png);
+}
+//make the request
+xhr.send();
+    </script>
+
+
+3. Print country name,region,subregion and population
+<script>
+     //create a xhr object for class
+let xhr=new XMLHttpRequest();
+//open the HTTP request
+xhr.open('GET','https://restcountries.com/v3.1/all');
+//handle the response
+
+
+xhr.onload = function(){
+    let data =JSON.parse(xhr.response);
+    console.log(data);
+    for(let i=0; i<data.length;i++)
+   console.log(data[i].region,data[i].name,data[i].subregion,data[i].population)
+
+
+    }
+//make the request
+
+xhr.send();
+    </script>
